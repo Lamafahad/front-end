@@ -79,10 +79,6 @@ class App extends Component {
          setAddProgram={this.setAddProgram} user={user} alert={this.alert} />}
          />
 
-         <Route exact path='/program/EditProgram' render={()=>
-         <EditProgram {...props} setAddProgram={this.setAddPrograms} alert={this.alert} user={user} />}
-         />
-
       </React.Fragment>
     )
   }
