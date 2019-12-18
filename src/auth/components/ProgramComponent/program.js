@@ -22,7 +22,14 @@ class Program extends React.Component {
                     {this.props.programDetails}
                 </p>
                 <a href="/" onClick={this.deleteProgram}> Delete </a>
-                <Link to='/program/EditProgram'> Edit </Link>
+                <Link
+                        to={{
+                            pathname: "/programs/editprogram",
+                           
+                            state: { info: this.props.program }
+                        }}
+                        >
+                             Edit </Link>
             </div>
         );
     }

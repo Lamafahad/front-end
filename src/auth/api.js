@@ -65,34 +65,37 @@ export const getAllProgram = () => {
   return axios.get(`${apiUrl}/api/programs`)
 }
 
- // Delete Program By ID
- export const deleteProgramByID = function(id,userId) {
- return axios.delete(`${apiUrl}/api/programs/${id}`);
+// Delete Program By ID
+export const deleteProgramByID = function (id, userId) {
+  return axios.delete(`${apiUrl}/api/programs/${id}`);
 }
 
-  // Add program
-  export const addProgram = (program, user) => {
-    return axios({
-      url: apiUrl + '/api/programs',
-      method: 'POST',
-      headers: {
-        // 'Authorization': `Bearer ${user.token}` // FOR EXPRESS
-        // ‘Authorization’: `Token ${user.token}` // FOR RAILS
-      },
-      data: {
-        program: program
-      }
-    })
-  }
+// Add program
+export const addProgram = (program, user) => {
+  return axios({
+    url: apiUrl + '/api/programs',
+    method: 'POST',
+    headers: {
+      // 'Authorization': `Bearer ${user.token}` // FOR EXPRESS
+      // ‘Authorization’: `Token ${user.token}` // FOR RAILS
+    },
+    data: {
+      program: program
+    }
+  })
+}
 
 //Edit Program 
 
-export const editProgramById = function (program,user) {
+export const editProgramById = function (program, user) {
   return axios({
     url: `${apiUrl}/api/programs/${program.id}`,
     method: 'PATCH',
     data: {
-      program: program
+      program: {
+        programName: program.programName,
+        programDetails: program.programDetails
+      }
     }
   })
 }

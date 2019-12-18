@@ -1,10 +1,8 @@
 import React, { Component } from 'react'
-import { withRouter } from 'react-router-dom'
-import { Link, Redirect } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom';
 import { editProgramById } from '../../api'
-
-
-class EditProgram extends Component{
+// import messages from '../../auth/messages'
+class EditProgram extends Component {
     constructor() {
         super()
         this.state = {
@@ -12,65 +10,61 @@ class EditProgram extends Component{
             programDetails: ''
         }
     }
-    componentDidMount(){
-        const {info} = this.props.location.state
-    this.setState({
-        programName: info.programName,
-        programDetails: info.programDetails,
+    componentDidMount() {
+        const { info } = this.props.location.state
+        console.log(this.props);
+        let programName = info.programName
+        let programDetails = info.programDetails
+        let id = info._id
+        this.setState({
+            programName, programDetails, id
         })
     }
-
     handleChange = event => this.setState({
         [event.target.name]: event.target.value
-      })
-    
-      onUpdateProduct = event => {
+    })
+    onEditProgram = event => {
         event.preventDefault()
-    
         const { alert, history, user } = this.props
-        editProgramById( this.state, this.props.user )
-         
-        .then((response) => {
-            console.log(response.data)
-        })
-        .catch(error => {
-            console.log(error)
-            this.setState({
-                programName: '',
-                programDetails: ''
+        editProgramById(this.state, this.props.user)
+            .then((response) => { })
+            // .then(() => alert(messages.editProgramSuccess, 'success'))
+            .then(() => history.push('/programs'))
+            .catch(error => {
+                console.log(error)
+                this.setState({
+                    programName: '',
+                    programDetails: ''
+                })
+                // alert(messages.editProgramFailure, 'danger')
             })
-            alert('There is a problem');
-        })
-}
-render() {
-    const { programName, programDetails} = this.state
-    console.log(this.props);
-    
-    return (
-        <form className='auth-form' onSubmit={this.onUpdateProgram}>
-            <h3>Edit A Program</h3>
-            <label htmlFor="program-name">Program Name</label>
-            <input
-                required
-                name="programName"
+    }
+    render() {
+        const { programName, programDetails,  } = this.state
+        return (
+            <form className='auth-form' onSubmit={this.onEditProgram}>
+                <h3>Edit A Program</h3>
+                <label htmlFor="ProgramName">Program Name</label>
+                <input
+                    required
+                    name="programName"
                     value={programName}
                     type="programName"
-                    placeholder="Program Name"
-                onChange={this.handleChange}
-            />
-            <label htmlFor="description">Details</label>
-            <input
-                required
-                name="programDetails"
-                value={programDetails}
-                type="programDetails"
-                placeholder="programDetails"
-                onChange={this.handleChange}
-            />
-
-            <button type="submit">Confirm Changes</button>
-        </form>
-    )
-}
+                    placeholder="ProgramName"
+                    onChange={this.handleChange}
+                />
+                <label htmlFor="ProgramDetails">Program Details</label>
+                <input
+                    required
+                    name="programDetails"
+                    value={programDetails}
+                    type="programDetails"
+                    placeholder="ProgramDetails"
+                    onChange={this.handleChange}
+                />
+                <button type="submit">ADD Program</button>
+            </form>
+        )
+    }
 }
 export default EditProgram;

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import './App.scss'
 import { Route } from 'react-router-dom'
 
+
 import AuthenticatedRoute from './auth/components/AuthenticatedRoute'
 import Header from './header/Header'
 import SignUp from './auth/components/SignUp'
@@ -15,15 +16,15 @@ import AddProgram from './auth/components/ProgramComponent/AddProgram'
 import EditProgram from './auth/components/ProgramComponent/EditProgram';
 
 class App extends Component {
-  constructor () {
+  constructor() {
     super()
     this.state = {
       user: null,
       alerts: [],
       programs: []
     }
-}
-  
+  }
+
   setUser = user => this.setState({ user })
 
   clearUser = () => this.setState({ user: null })
@@ -39,8 +40,11 @@ class App extends Component {
   setAddProgram = (addProgram) => {
     this.setState({ addProgram: addProgram });
   }
-  
-  render () {
+  setEditProgram = (editProgram) => {
+    this.setState({ editProgram: editProgram });
+  }
+
+  render() {
     const { alerts, user } = this.state
 
     return (
@@ -63,21 +67,26 @@ class App extends Component {
             <ChangePassword alert={this.alert} user={user} />
           )} />
         </main>
-        
-        <Route exact path='/programs' render={()=> 
-        <Programs programs={this.state.programs} 
-        setPrograms={this.setPrograms}
-        /> } />
-        
-       <AuthenticatedRoute exact path='/program/AddProgram' user={user} render={()=> {
-       if (user.userRole === 'admin') 
-       return <AddProgram addProgram={this.state.addProgram} setAddProgram={this.setAddProgram} user={user} alert={this.alert} />
-       }}/>
 
-         <Route exact path='/program/AddProgram' render={()=>
-         <AddProgram  addProgram={this.state.addProgram}
-         setAddProgram={this.setAddProgram} user={user} alert={this.alert} />}
-         />
+        <Route exact path='/programs' render={() =>
+          <Programs programs={this.state.programs}
+            setPrograms={this.setPrograms}
+          />} />
+
+        <AuthenticatedRoute exact path='/program/AddProgram' user={user} render={() => {
+          if (user.userRole === 'admin')
+            return <AddProgram addProgram={this.state.addProgram} setAddProgram={this.setAddProgram} user={user} alert={this.alert} />
+        }} />
+
+        <Route exact path='/program/AddProgram' render={() =>
+          <AddProgram addProgram={this.state.addProgram}
+            setAddProgram={this.setAddProgram} user={user} alert={this.alert} />}
+        />
+
+        <Route exact path='/programs/editprogram' user={user} render={(props) =>
+          <EditProgram editProgram={this.state.editProgram} {...props}
+            setEditProgram={this.setEditProgram} user={user} alert={this.alert} />}
+        />
 
       </React.Fragment>
     )

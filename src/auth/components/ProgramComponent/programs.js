@@ -1,5 +1,5 @@
 import React from 'react';
-import { getAllProgram , deleteProgramByID, addProgram } from '../../api';
+import { getAllProgram , deleteProgramByID } from '../../api';
 import Program from './program';
 import { Link } from 'react-router-dom';
 
@@ -42,10 +42,12 @@ class Programs extends React.Component {
        if (this.props.programs.length > 0) {
        allPrograms = this.props.programs.map((program, index) => {
        return <Program
+       program={program}
        programName =  {program.programName}
        programDetails = {program.programDetails}
-       user ={program.user}
+       user ={this.props.user}
        id={program._id} 
+       
        deleteProgram={this.deleteProgram}
        key={index}/>
      });
