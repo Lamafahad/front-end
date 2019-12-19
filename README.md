@@ -1,5 +1,5 @@
 # ![GA Logo](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) 
-#  Project #4: Shopping Website
+#  Project #4: Engaged for Change Website
 ## Table of Contents
 - [User Story](#user-story)
 - [Entity Relationship Diagram](#entity-relationship-diagram)
