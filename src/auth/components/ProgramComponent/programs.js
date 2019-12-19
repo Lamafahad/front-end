@@ -41,21 +41,22 @@ class Programs extends React.Component {
 
        if (this.props.programs.length > 0) {
        allPrograms = this.props.programs.map((program, index) => {
-       return <Program
+       return  <Program
        program={program}
        programName =  {program.programName}
        programDetails = {program.programDetails}
        user ={this.props.user}
        id={program._id} 
-       
        deleteProgram={this.deleteProgram}
        key={index}/>
      });
     }
     return <div>
-      <Link to='/program/AddProgram'> <h3> Add New Program</h3></Link>
+    <div>
      {allPrograms}
       </div>
+      <Link className="btn bg-danger bttn center" to='/program/AddProgram'> <h5> Add New Program</h5></Link>
+    </div>
     }
 }
 export default Programs;

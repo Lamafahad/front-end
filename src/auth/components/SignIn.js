@@ -4,6 +4,9 @@ import { withRouter } from 'react-router-dom'
 import { signIn } from '../api'
 import messages from '../messages'
 
+import '../components/signin.scss'
+
+
 class SignIn extends Component {
   constructor () {
     super()
@@ -38,6 +41,9 @@ class SignIn extends Component {
     const { email, password } = this.state
 
     return (
+      <div>
+      <div class='leftHalf'></div>
+      <div class= 'box2'>
       <form className='auth-form' onSubmit={this.onSignIn}>
         <h3>Sign In</h3>
         <label htmlFor="email">Email</label>
@@ -58,8 +64,10 @@ class SignIn extends Component {
           placeholder="Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign In</button>
+        <button type="submit" class="btn btn-danger" >Sign In</button>
       </form>
+      </div>
+      </div>
     )
   }
 }

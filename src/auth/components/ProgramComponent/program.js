@@ -21,8 +21,8 @@ class Program extends React.Component {
                 <p>
                     {this.props.programDetails}
                 </p>
-                <a href="/" onClick={this.deleteProgram}> Delete </a>
-                <Link
+                <a className="btn bg-danger bttn" href="/" onClick={this.deleteProgram}> Delete </a>
+                <Link className="btn bg-danger bttn"
                         to={{
                             pathname: "/programs/editprogram",
                            

@@ -3,6 +3,7 @@ import { withRouter } from 'react-router-dom'
 
 import { signUp, signIn } from '../api'
 import messages from '../messages'
+import '../components/signin.scss'
 
 class SignUp extends Component {
   constructor () {
@@ -40,6 +41,9 @@ class SignUp extends Component {
     const { email, password, passwordConfirmation } = this.state
 
     return (
+      <div>
+        <div class='leftHalf'></div>
+     <div class= 'box2'>
       <form className='auth-form' onSubmit={this.onSignUp}>
         <h3>Sign Up</h3>
 
@@ -70,8 +74,10 @@ class SignUp extends Component {
           placeholder="Confirm Password"
           onChange={this.handleChange}
         />
-        <button type="submit">Sign Up</button>
+        <button type="submit" class="btn btn-danger">Sign Up</button>
       </form>
+      </div>
+      </div>
     )
   }
 }

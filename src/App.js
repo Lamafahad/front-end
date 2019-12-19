@@ -14,6 +14,7 @@ import Test from './auth/components/ProgramComponent/test'
 import Programs from './auth/components/ProgramComponent/programs'
 import AddProgram from './auth/components/ProgramComponent/AddProgram'
 import EditProgram from './auth/components/ProgramComponent/EditProgram';
+import Home from './header/Home';
 
 class App extends Component {
   constructor() {
@@ -66,6 +67,8 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword alert={this.alert} user={user} />
           )} />
+         <Route exact path='/' component={Home} />
+
         </main>
 
         <Route exact path='/programs' render={() =>

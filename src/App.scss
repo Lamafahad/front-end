@@ -44,5 +44,29 @@ $charcoal: #ccc;
   button {
     align-self: flex-end;
     max-width: 200px;
+    
   }
+}
+
+.program{
+  margin-top: 20px;
+  display: inline-block;
+  flex-direction: column;
+  border-radius: 15px;
+  background-color: gray;
+  color: white;
+  max-width: 400px;
+  width: 100%;
+  margin-left: 200px;
+  padding: 8px 15px;
+}
+.bttn{
+  margin-left: 20px;
+  color: white;
+  margin-top: 15px;
+}
+
+.center{
+  margin-left: 600px;
+
 }
