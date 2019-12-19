@@ -5,6 +5,7 @@ import '../header/home.scss';
 const Home = (props) => {
     return(
         <section>
+<div class ='cover1'> </div>
 <div class ='tit'>
 <h1> Your opportunity to volunteer!</h1>
 </div>

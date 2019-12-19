@@ -28,9 +28,10 @@ const alwaysOptions = (
 const Header = ({ user }) => (
 
 <header className="main-header">
+
       <nav className="navbar navbar-expand-lg p-3 p-3 mb-2 bg-danger text-white ">
+     <h2 className="engaged">Engaged for Change</h2>
       { user && <span>Welcome, {user.email}</span>}
-      <h2>Engaged for Change</h2>
       { user ? authenticatedOptions : unauthenticatedOptions }
       { alwaysOptions }
     </nav>

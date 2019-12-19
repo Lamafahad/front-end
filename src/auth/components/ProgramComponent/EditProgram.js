@@ -28,7 +28,6 @@ class EditProgram extends Component {
         const { alert, history, user } = this.props
         editProgramById(this.state, this.props.user)
             .then((response) => { })
-            // .then(() => alert(messages.editProgramSuccess, 'success'))
             .then(() => history.push('/programs'))
             .catch(error => {
                 console.log(error)
@@ -36,7 +35,6 @@ class EditProgram extends Component {
                     programName: '',
                     programDetails: ''
                 })
-                // alert(messages.editProgramFailure, 'danger')
             })
     }
     render() {

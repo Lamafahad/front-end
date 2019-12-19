@@ -18,7 +18,7 @@ $charcoal: #bbb;
   align-items: center;
   display: flex;
   flex-grow: 1;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 
 @media (max-width: 600px) {
@@ -38,7 +38,7 @@ $charcoal: #bbb;
   .main-header > nav {
     flex-direction: column;
     width: 100%;
-
+    
     a,
     span {
       border: 1px solid $charcoal;
@@ -47,4 +47,9 @@ $charcoal: #bbb;
       width: 80%;
     }
   }
+}
+
+
+.engaged{
+  align-self: flex-end !important;
 }
